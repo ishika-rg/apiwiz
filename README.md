@@ -4,7 +4,7 @@ An interactive web application built with React and React Flow that visualizes J
 
 ## Features
 
-### Core Features (Mandatory)
+### Features 
 
 #### JSON Input & Parsing
 - Text area for pasting or typing JSON data
@@ -38,7 +38,7 @@ An interactive web application built with React and React Flow that visualizes J
 - **MiniMap**: Overview map for easy navigation of large JSON structures
 - **Interactive Background**: Grid pattern for better orientation
 
-### Bonus Features (All Implemented)
+### Other Features
 
 #### Dark/Light Mode Toggle
 - Switch between light and dark themes
@@ -155,24 +155,7 @@ yarn preview
 - **Theme Toggle**: Click the theme button (top-right) to switch modes
 - **Clear/Reset**: Use the buttons to clear or reset the input
 
-## Project Structure
 
-```
-apiwiz/
-├── src/
-│   ├── components/
-│   │   ├── home.jsx         # Main component with all logic
-│   │   └── home.css         # Component-specific styles
-│   ├── App.jsx              # Root component
-│   ├── App.css              # App-level styles
-│   ├── main.jsx             # Entry point
-│   └── index.css            # Global styles
-├── public/                  # Static assets
-├── index.html               # HTML template
-├── package.json             # Dependencies and scripts
-├── vite.config.js           # Vite configuration
-└── README.md               # This file
-```
 
 ## Features Breakdown
 
@@ -193,24 +176,6 @@ apiwiz/
 
 
 
-## Development
 
-### Code Quality
-- Clean, modular component structure
-- Separation of concerns
-- Reusable functions
-- Proper error handling
-- Responsive CSS with mobile-first approach
-
-### Performance
-- Efficient tree layout algorithm
-- Optimized rendering with React Flow
-- Memoized callbacks to prevent unnecessary re-renders
-- Smooth animations without performance impact
-
-
-
-
----
 
 Built with React + Vite + React Flow
