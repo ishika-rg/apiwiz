@@ -101,19 +101,7 @@ http://localhost:5173
 ```
 (Or the port shown in your terminal)
 
-### Build for Production
 
-```bash
-yarn build
-```
-
-The optimized build will be in the `dist` folder.
-
-### Preview Production Build
-
-```bash
-yarn preview
-```
 
 ## Usage Guide
 
