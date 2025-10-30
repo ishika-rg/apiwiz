@@ -4,7 +4,7 @@ import { MarkerType } from '@xyflow/react';
 export const nodeStyles = {
   object: {
     style: {
-      background: '#667eea',
+      background: '#637cecff',
       color: 'white',
       border: '2px solid #5a67d8',
       borderRadius: '8px',
@@ -14,7 +14,7 @@ export const nodeStyles = {
   },
   array: {
     style: {
-      background: '#48bb78',
+      background: '#4ec07eff',
       color: 'white',
       border: '2px solid #38a169',
       borderRadius: '8px',
@@ -34,16 +34,6 @@ export const nodeStyles = {
   }
 };
 
-/**
- * Convert JSON object to React Flow nodes and edges
- * @param {*} obj - The JSON object to convert
- * @param {string|null} parentId - Parent node ID
- * @param {string} key - Current key name
- * @param {string} path - JSON path (e.g., $.user.name)
- * @param {number} level - Tree depth level
- * @param {boolean} isDarkMode - Dark mode flag for edge styling
- * @returns {{nodes: Array, edges: Array}}
- */
 export const jsonToNodes = (obj, parentId = null, key = 'root', path = '$', level = 0, isDarkMode = false) => {
   const nodes = [];
   const edges = [];
@@ -153,12 +143,7 @@ export const jsonToNodes = (obj, parentId = null, key = 'root', path = '$', leve
   return { nodes, edges };
 };
 
-/**
- * Layout nodes in a hierarchical tree structure
- * @param {Array} nodes - Array of nodes to layout
- * @param {Array} edges - Array of edges
- * @returns {Array} - Nodes with updated positions
- */
+
 export const layoutNodes = (nodes, edges) => {
   const levelMap = new Map();
   const nodeMap = new Map(nodes.map(n => [n.id, n]));
@@ -183,7 +168,7 @@ export const layoutNodes = (nodes, edges) => {
     children.forEach(childId => calculateLevels(childId, level + 1));
   };
 
-  // Find root node (node with no incoming edges)
+  // Find root node 
   const targetNodes = new Set(edges.map(e => e.target));
   const rootNode = nodes.find(n => !targetNodes.has(n.id));
 
@@ -213,12 +198,7 @@ export const layoutNodes = (nodes, edges) => {
   return nodes;
 };
 
-/**
- * Search for a node by JSON path
- * @param {Array} nodes - Array of nodes to search
- * @param {string} searchPath - JSON path to search for
- * @returns {Object|null} - Matching node or null
- */
+
 export const findNodeByPath = (nodes, searchPath) => {
   if (!searchPath.trim()) {
     return null;
@@ -226,17 +206,12 @@ export const findNodeByPath = (nodes, searchPath) => {
 
   return nodes.find(node => {
     const nodePath = node.data.path;
-    // Support both exact match and partial match
+    
     return nodePath === searchPath || nodePath.includes(searchPath);
   });
 };
 
-/**
- * Highlight a specific node
- * @param {Array} nodes - Array of nodes
- * @param {string} nodeId - ID of node to highlight
- * @returns {Array} - Updated nodes array
- */
+
 export const highlightNode = (nodes, nodeId) => {
   return nodes.map(node => {
     if (node.id === nodeId) {
